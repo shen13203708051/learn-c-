@@ -1,41 +1,43 @@
 #include<iostream>
 #include<typeinfo>
+//#include<string>
+#include<cstring>
 using namespace std; 
-enum weekday {sun,mon,tue,wed,thu,fri,sat};
+struct person
+{
+    int num;
+    char name[20];
+    char sex;
+    char job;
+    union
+    {
+        int classes;
+        char position[10];
+    };
+};
 int main()
 {
-    int weekn=0;
-    cout<<"今天是星期几(1-7):"<<endl;
-    cin>>weekn;
-    weekday day=static_cast<weekday>(weekn);
-    weekday thatday=weekday((weekn+10)%7);
-
-    switch(thatday)
+    int i;
+    person p[2];
+    char temp[10];
+    for(i=0;i<2;i++)
     {
-        case sun:
-            cout<<"十天后是星期日"<<endl;
-            break;
-        case mon:
-            cout<<"十天后是星期一"<<endl;
-            break;
-        case tue:
-            cout<<"十天后是星期二"<<endl;
-            break;
-        case wed:
-            cout<<"十天后是星期三"<<endl;
-            break;
-        case thu:
-            cout<<"十天后是星期四"<<endl;
-            break;
-        case fri:
-            cout<<"十天后是星期五"<<endl;
-            break;
-        case sat:
-            cout<<"十天后是星期六"<<endl;
-            break;
-        default:
-            cout<<"出错"<<endl;
+        cin>>p[i].num>>p[i].name>>p[i].sex>>p[i].job;
+        if(p[i].job=='s')
+            {
+                cin>>p[i].classes;
+            }
+        else
+            {
+                cin>>p[i].position;
+            }
     }
-    5555>>cout;
+    for(i=0;i<2;i++)
+    {
+        if(p[i].job=='s')
+            cout<<p[i].name<<" is a student of class "<<p[i].classes<<endl;
+        else
+            cout<<p[i].name<<" is a teacher, he is a  "<<p[i].position<<endl;
+    }
     return 0; 
 }
