@@ -1,0 +1,1 @@
+/home/shensy/Code/c++/opencv3编程入门/手写数字识别/bulid/CMakeFiles/main.dir
